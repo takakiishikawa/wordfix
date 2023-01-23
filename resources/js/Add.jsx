@@ -33,6 +33,9 @@ import { countBy } from 'lodash';
 
 
 export default function Add(){
+
+    const serverUrl=import.meta.env.VITE_SERVER_API_ADDRESS;
+
     const [count,setCount]=useState('');
     const [countMemo,setCountMemo]=useState('');
 
@@ -68,7 +71,6 @@ export default function Add(){
     const inputWordOriginElm=useRef('');
 
 
-    const serverUrl=import.meta.env.VITE_SERVER_API_ADDRESS;
 
     useEffect(()=>{
         const url=serverUrl+"/add/select";

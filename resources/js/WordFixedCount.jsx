@@ -2,11 +2,14 @@ import {useEffect, useState} from 'react';
 
 
 export default function WordFixedCount(){
+    const serverUrl=import.meta.env.VITE_SERVER_API_ADDRESS;
+
     const [wordFixed,setWordFixed]=useState({wordFixed:[]});
 
     useEffect(()=>{
-    const url="http://127.0.0.1:8000/wordFixedCount";
-    fetch(url).then(response=>response.json()).then(data=>setWordFixed(data));
+
+        const url=serverUrl+"/wordFixedCount";
+        fetch(url).then(response=>response.json()).then(data=>setWordFixed(data));
     },[]);
 
     return (

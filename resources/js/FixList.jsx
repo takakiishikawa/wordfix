@@ -30,14 +30,18 @@ import TabPanel from '@mui/lab/TabPanel';
 import { countBy } from 'lodash';
 
 
-
 export default function FixList(){
+
+    const serverUrl=import.meta.env.VITE_SERVER_API_ADDRESS;
+
+
     const [totalList,setTotalList]=useState({fixedList:[],unfixedList:[]});
     const [tabValue, setTabValue] = useState("1");
     const [navigation]=useState(3);
 
     useEffect(()=>{
-        const url="http://127.0.0.1:8000/fixList";
+        const url=serverUrl+"/fixList";
+
         fetch(url)
             .then(response=>response.json())
             .then(data=>{
@@ -49,7 +53,6 @@ export default function FixList(){
     const onChangeTab = (event, newValue) => {
         setTabValue(newValue);
     };
-    console.log(tabValue);
 
     return (
         <>
