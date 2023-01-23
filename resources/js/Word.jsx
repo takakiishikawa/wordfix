@@ -42,6 +42,8 @@ speechSynthesis.cancel();
 
 
 export default function Word(){
+    const serverUrl=import.meta.env.VITE_SERVER_API_ADDRESS;
+
     const [questionArray,setQuestionArray]=useState({wordQuestionList:[]});
     const [navigation,setNavigation]=useState(0);
 
@@ -71,7 +73,8 @@ export default function Word(){
 
     //question & WordFixedCount表示
     useEffect(()=>{
-        const url="http://127.0.0.1:8000/questionList";
+        const url=serverUrl+"/questionList";
+
         fetch(url).then(response=>response.json()).then(data=>setQuestionArray(data));
     },[]);
 
@@ -139,7 +142,9 @@ export default function Word(){
         setAnswer("");
 
         if(count===questionArray.wordQuestionList.length){
-            const url3="http://127.0.0.1:8000/answerList";
+
+            const url3=serverUrl+"/answerList";
+
             fetch(url3,{
                 method:'POST',
                 body:JSON.stringify(answerList),
@@ -150,7 +155,7 @@ export default function Word(){
             answerList=[];
 
             //新規の問題を取得
-            const url="http://127.0.0.1:8000/questionList";
+            const url=serverUrl+"/questionList";
             fetch(url).then(response=>response.json()).then(data=>setQuestionArray(data));
         }
 
