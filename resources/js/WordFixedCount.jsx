@@ -10,6 +10,7 @@ export default function WordFixedCount(){
 
         const url=serverUrl+"/wordFixedCount";
         fetch(url).then(response=>response.json()).then(data=>setWordFixed(data));
+        console.log(url);
     },[]);
 
     return (
