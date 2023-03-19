@@ -42,5 +42,5 @@ Route::post('/answerList',[Question::class,'answerList']);
 Route::post('/add/pastFixed',[Add::class,'addPastFixed']);
 Route::post('/add/newWord',[Add::class,'addNewWord']);
 
-Route::get('/add/select/',[Add::class,'select']);
+Route::get('/add/select',[Add::class,'select']);
 
