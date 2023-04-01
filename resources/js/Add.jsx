@@ -55,6 +55,8 @@ export default function Add(){
 
 
 
+
+
     const [select,setSelect]=useState({suffixArray:[],rootArray:[],prefixArray:[],originArray:[],wordOriginArray:[]});
 
     //textfield初期化
@@ -69,6 +71,7 @@ export default function Add(){
     const inputSuffixElm=useRef('');
     const inputOriginElm=useRef('');
     const inputWordOriginElm=useRef('');
+
 
 
 

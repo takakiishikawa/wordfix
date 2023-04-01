@@ -62,6 +62,28 @@ export default function Word(){
 
     const inputElm=useRef('');
 
+
+    const [wordsAPI,setWordsAPI]=useState('100');
+
+
+
+    fetch('https://wordsapiv1.p.rapidapi.com/words/?frequencyMin=4&hasDetails=typeOf&limit=60',  {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': '10a8ec9657msh15dc45ed84f6242p1e6b06jsna0e1f74107c5',
+            'X-RapidAPI-Host': 'wordsapiv1.p.rapidapi.com'
+        }
+    })
+        .then(response => response.json())
+        .then(response => console.log(response))
+        .catch(err => console.error(err));
+
+
+
+
+
+
+
     const voice = speechSynthesis.getVoices().find(function(voice){
         return voice.name === 'Google US English';
     });
@@ -185,6 +207,8 @@ export default function Word(){
             </BottomNavigation>
         </Box>
         </div>
+
+        <div>{wordsAPI}</div>
 
         <Typography align="center">
             <WordFixedCount />
