@@ -16,14 +16,6 @@ const router=createBrowserRouter([
         path:'idiom',
         element:<Idiom />,
     },
-    {
-        path: "add",
-        element:<Add />,
-    },
-    {
-        path:'list',
-        element:<FixList />,
-    },
 
 ]);
 

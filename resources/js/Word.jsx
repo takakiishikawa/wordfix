@@ -1,7 +1,6 @@
 import {Link} from 'react-router-dom';
 import {useEffect, useState,useRef} from 'react';
 import { countBy } from 'lodash';
-import WordFixedCount from './WordFixedCount';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import SendIcon from '@mui/icons-material/Send';
@@ -210,9 +209,7 @@ export default function Word(){
 
         <div>{wordsAPI}</div>
 
-        <Typography align="center">
-            <WordFixedCount />
-        </Typography>
+
         <Typography align="center">
 
         {/*<img src={"/img/instagram_profile_image.png"} size="small" className="logo" />*/}
