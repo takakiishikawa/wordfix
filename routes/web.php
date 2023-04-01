@@ -20,21 +20,3 @@ Route::get('/', function () {
     return view('top');
 });
 
-//リロード時のredirect
-Route::get('/idiom', function () {
-    return redirect('');
-});
-Route::get('/add', function () {
-    return redirect('');
-});
-Route::get('/list', function () {
-    return redirect('');
-});
-
-
-//API
-Route::get('/api',[Question::class,'index']);
-Route::get('/questionList',[Question::class,'questionList']);
-Route::post('/answerList',[Question::class,'answerList']);
-
-
