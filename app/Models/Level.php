@@ -5,14 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class WordOrigin extends Model
+class Level extends Model
 {
     use HasFactory;
 
-    protected $fillable=[
-        'word_origin',
-        'jpn',
-        'memo',
-        'root_id',
+    protected $fillable = [
+        'level',
+        'sub_level',
+        'word_idiom'
     ];
 }

@@ -13,12 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('suffixes', function (Blueprint $table) {
+        Schema::create('user_levels', function (Blueprint $table) {
             $table->id();
-            $table->string('suffix');
-            $table->string('jpn');
-            $table->unsignedBigInteger('parse_id');
-            $table->foreign('parse_id')->references('id')->on('parses');
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('level_id')->constrained();
+            $table->string('question_mode');
+            $table->integer('level_question_count');
+            $table->string('level_status');
+            $table->string('level_lap')->default('0: Not cleared');
             $table->timestamps();
         });
     }
@@ -30,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('suffixes');
+        Schema::dropIfExists('user_levels');
     }
 };

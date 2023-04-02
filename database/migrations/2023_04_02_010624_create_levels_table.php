@@ -13,9 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('answer_counts', function (Blueprint $table) {
-            $table->unsignedBigInteger('type_id')->nullable();;
-            $table->foreign('type_id')->references('id')->on('types');
+        Schema::create('levels', function (Blueprint $table) {
+            $table->id();
+            $table->string('level');
+            $table->string('sub_level');
+            $table->string('word_idiom');
+            $table->timestamps();
         });
     }
 
@@ -26,8 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('answer_counts', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('levels');
     }
 };

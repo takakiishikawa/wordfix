@@ -37,69 +37,69 @@ rapidly increase English word counts in one's brain database.
 ## 1.Database Design
 ```mermaid
 erDiagram
-Level ||--o{ Word: ""
+Level ||--o{ Vocabulary: ""
 Level ||--o{ UserLevel: ""
-User ||--o{ UserWord: ""
+User ||--o{ UserVocabulary: ""
 User ||--o{ UserLevel: ""
-UserLevel ||--o{ UserWord: ""
-Word ||--o{ UserWord: ""
+UserLevel ||--o{ UserVocabulary: ""
+Vocabulary ||--o{ UserVocabulary: ""
 
 
 User {
-    integer id PK
-    string name
-    string email
-    string password
-    string image
+integer id PK
+string name
+string email
+string password
+string image
 }
 
-Word {
-    integer id PK
-    integer level_id FK
-    string word_idiom
-    integer frequency
-    string parse
-    string en
-    string jp
-    string image
-    string typical_sentence
-    string sentence
-    string pronunciation
-    string prefix
-    string prefix_jp
-    string suffix
-    string suffix_jp
-    string suffix_parse
-    string word_root
-    string word_usage
+Vocabulary {
+integer id PK
+integer level_id FK
+string word_idiom
+string definition_en
+string definition_jp
+integer frequency
+string parse
+string pronunciation
+string word_root
+string usage_notes
+string prefix_en
+string prefix_jp
+string suffix_en
+string suffix_jp
+string suffix_parse
+string image
+string main_example_sentence
+string extra_example_sentences
 }
 
 Level {
-    integer id PK
-    string level
-    string sub_level
-    string word_idiom
+integer id PK
+string level
+string sub_level
+string word_idiom
 }
 
-UserWord{
-    integer id PK
-    integer user_id FK
-    integer word_id FK
-    integer user_level_id FK
-    strig word_lap
-    string correct_count
-    string practice_count
-    string question_mode
+UserVocabulary{
+integer id PK
+integer user_id FK
+integer vocabulary_id FK
+integer user_level_id FK
+string question_mode
+integer answer_count
+string correct_progress
+string vocabulary_lap
 }
 
 UserLevel{
-    integer id PK
-    integer user_id FK
-    integer level_id FK
-    string level_lap
-    string level_status
-    string question_mode
-    integer question_count
+integer id PK
+integer user_id FK
+integer level_id FK
+string question_mode
+integer level_question_count
+string level_status
+string level_lap
 }
 ```
 
